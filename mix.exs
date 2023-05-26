@@ -1,12 +1,14 @@
 defmodule NervesSystemRpi4.MixProject do
   use Mix.Project
 
-  @github_organization "nerves-project"
-  @app :nerves_system_rpi4
-  @source_url "https://github.com/#{@github_organization}/#{@app}"
+  @github_organization "pojiro"
+  @app :edgebox_rpi_200
+  @repo "custom_rpi4_for_#{@app}"
+  @source_url "https://github.com/#{@github_organization}/#{@repo}"
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
            |> String.trim()
+           |> then(&"#{&1}+edgebox")
 
   def project do
     [
@@ -42,7 +44,7 @@ defmodule NervesSystemRpi4.MixProject do
     [
       type: :system,
       artifact_sites: [
-        {:github_releases, "#{@github_organization}/#{@app}"}
+        {:github_releases, "#{@github_organization}/#{@repo}"}
       ],
       build_runner_opts: build_runner_opts(),
       platform: Nerves.System.BR,
