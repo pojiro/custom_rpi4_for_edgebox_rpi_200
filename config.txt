@@ -62,4 +62,5 @@ enable_uart=1
 
 # For the CM4 I/O board, USB is disabled by default. This enables it.
 dtoverlay=dwc2,dr_mode=host
-
+# For the external antenna.
+dtparam=ant2
